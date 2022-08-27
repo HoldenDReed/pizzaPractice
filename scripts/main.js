@@ -71,7 +71,7 @@ document.addEventListener("click", (e) => {
     if (e.target.id === "submitOrder") {
       // Need logic to get all the values from the form, 
           // format them into an object and add that object to the `orders` array in `orders.js`
-          const crustElement = document.querySelector("input[name={crust}]:checked")?.value
+          const crustElement = document.querySelector("input[name=crust]:checked")?.value
           console.log(crustElement)
           const toppingsElements = document.querySelectorAll(
             "input[name=toppings]:checked"
