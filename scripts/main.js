@@ -77,9 +77,10 @@ document.addEventListener("click", (e) => {
             "input[name=toppings]:checked"
         );
         const toppingsArray = []
-        const toppings =toppingsElements.forEach(toppingElement=> {
+        const toppings = toppingsElements.forEach(toppingElement=> {
             toppingsArray.push(toppingElement.value)
           });
         console.log(toppingsArray)
+        console.log(crustElement)
     }
   });
