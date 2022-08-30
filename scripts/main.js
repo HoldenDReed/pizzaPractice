@@ -72,7 +72,7 @@ document.addEventListener("click", (e) => {
       // Need logic to get all the values from the form, 
           // format them into an object and add that object to the `orders` array in `orders.js`
           const crustElement = document.querySelector("input[name=crust]:checked")?.value
-          console.log(crustElement)
+
           const toppingsElements = document.querySelectorAll(
             "input[name=toppings]:checked"
         );
@@ -80,7 +80,29 @@ document.addEventListener("click", (e) => {
         const toppings = toppingsElements.forEach(toppingElement=> {
             toppingsArray.push(toppingElement.value)
           });
-        console.log(toppingsArray)
-        console.log(crustElement)
+           const specialInstructions = document.getElementById('specialInstructions')?.value
+
+           let newOrder =
+           {
+             crust: crustElement,
+             toppings: toppingsArray,
+             instructions: specialInstructions
+           };
+           addNewOrder(newOrder)
+           console.log(newOrder)
+          
+
+          document.addEventListener("stateChanged", event => {
+            let orderHtml = 
+           `Crust: ${newOrder.crust}
+            Toppings: ${newOrder.toppings}
+            Instructions: ${newOrder.instructions}`;
+            ordersHtml += orderHtml
+          })
+
+
+        // console.log(toppingsArray)
+        // console.log(crustElement)
+        // console.log(specialInstructions)
     }
   });
