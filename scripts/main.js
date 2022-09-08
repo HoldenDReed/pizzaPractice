@@ -1,4 +1,4 @@
-import {getOrders, addNewOrder} from './orders.js'
+import { getOrders, addNewOrder } from './orders.js'
 
 document.getElementById("app").innerHTML = `
 <h1>Peanut's Pizza Parlor</h1>
@@ -58,8 +58,8 @@ const displayOrders = () => {
   let ordersHtml = " "
   const orders = getOrders()
   orders.forEach(order => {
-    ordersHtml += 
-    `<div>Crust: ${order.crust}</div>
+    ordersHtml +=
+      `<div>Crust: ${order.crust}</div>
      <div>Toppings: ${order.toppings}</div>
      <div>Instructuons: ${order.instructions}</div>`
   });
@@ -69,33 +69,33 @@ const displayOrders = () => {
 displayOrders()
 
 document.addEventListener("click", (e) => {
-    if (e.target.id === "submitOrder") {
-      // Need logic to get all the values from the form, 
-          // format them into an object and add that object to the `orders` array in `orders.js`
-          const crustElement = document.querySelector("input[name=crust]:checked")?.value
+  if (e.target.id === "submitOrder") {
+    // Need logic to get all the values from the form, 
+    // format them into an object and add that object to the `orders` array in `orders.js`
+    const crustElement = document.querySelector("input[name=crust]:checked")?.value
 
-          const toppingsElements = document.querySelectorAll(
-            "input[name=toppings]:checked"
-        );
-        const toppingsArray = []
-        const toppings = toppingsElements.forEach(toppingElement=> {
-            toppingsArray.push(toppingElement.value)
-          });
-           const specialInstructions = document.getElementById('specialInstructions')?.value
+    const toppingsElements = document.querySelectorAll(
+      "input[name=toppings]:checked"
+    );
+    const toppingsArray = []
+    const toppings = toppingsElements.forEach(toppingElement => {
+      toppingsArray.push(toppingElement.value)
+    });
+    const specialInstructions = document.getElementById('specialInstructions')?.value
 
-           let newOrder =
-           {
-             crust: crustElement,
-             toppings: toppingsArray,
-             instructions: specialInstructions
-           };
-           addNewOrder(newOrder)
-           console.log(newOrder)
-        // console.log(toppingsArray)
-        // console.log(crustElement)
-        // console.log(specialInstructions)
-    }
-  });
-  document.addEventListener("stateChanged", event => {
-    displayOrders()
-  })
+    let newOrder =
+    {
+      crust: crustElement,
+      toppings: toppingsArray,
+      instructions: specialInstructions
+    };
+    addNewOrder(newOrder)
+    //  console.log(newOrder)
+    //  console.log(toppingsArray)
+    //  console.log(crustElement)
+    //  console.log(specialInstructions)
+  }
+});
+document.addEventListener("stateChanged", event => {
+  displayOrders()
+})
